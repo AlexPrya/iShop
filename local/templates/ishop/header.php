@@ -34,9 +34,15 @@ IncludeTemplateLangFile(__FILE__);
         <div class="container">
             <div class="flex-row">
                 <div class="main-navbar__logo">
-                    <a href="#">
-                        iShop
-                    </a>
+                    <?if ($APPLICATION->GetCurDir() != '/') {?>
+                        <a class="main-navbar__logo-link" href="/">
+                            iShop
+                        </a>
+                    <?} else {?>
+                        <span class="main-navbar__logo-link">
+                            iShop
+                        </span>
+                    <?}?>
                     <h1>
                         Ваш эксперт<br>
                         Apple
@@ -58,18 +64,46 @@ IncludeTemplateLangFile(__FILE__);
                             <li><a href="#">Петропавловск-Камчатский</a></li>
                         </ul>
                     </li>
-                    <li class="main-navbar__nav-item"><a href="#">О компании</a></li>
-                    <li class="main-navbar__nav-item"><a href="#">Оплата и доставка</a></li>
-                    <li class="main-navbar__nav-item"><a href="#">Где купить</a></li>
-                    <li class="main-navbar__nav-item"><a href="#">Акции</a></li>
-                    <li class="main-navbar__login">
-                        <div>
-                            <a href="#">Вход</a>
-                        </div>
-                        <div>
-                            <a href="#">Регистрация</a>
-                        </div>
-                    </li>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "main-navbar",
+                        Array(
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "ROOT_MENU_TYPE" => "mainnavbar",
+                            "MENU_CACHE_TYPE" => "N",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_CACHE_GET_VARS" => array(""),
+                            "MAX_LEVEL" => "1",
+                            "CHILD_MENU_TYPE" => "left",
+                            "USE_EXT" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N"
+                        )
+                    );?>
+<!--                    <li class="main-navbar__nav-item"><a href="#">О компании</a></li>-->
+<!--                    <li class="main-navbar__nav-item"><a href="#">Оплата и доставка</a></li>-->
+<!--                    <li class="main-navbar__nav-item"><a href="#">Где купить</a></li>-->
+<!--                    <li class="main-navbar__nav-item"><a href="#">Акции</a></li>-->
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:system.auth.form",
+                        "auth.header",
+                        Array(
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "REGISTER_URL" => "/register/",
+                            "FORGOT_PASSWORD_URL" => "/forgot-password/",
+                            "PROFILE_URL" => "/personal/",
+                            "SHOW_ERRORS" => "Y"
+                        )
+                    );?>
+<!--                    <li class="main-navbar__login">-->
+<!--                        <div class="main-navbar__login-button">-->
+<!--                            <a class="main-navbar__login-link" href="#">Вход</a>-->
+<!--                        </div>-->
+<!--                        <div class="main-navbar__login-button">-->
+<!--                            <a class="main-navbar__login-link" href="#">Регистрация</a>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </div>
@@ -474,3 +508,60 @@ IncludeTemplateLangFile(__FILE__);
     </nav>
 </header>
 <main class="main">
+<?$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "main.banners",
+    Array(
+        "COMPONENT_TEMPLATE" => ".default",
+        "IBLOCK_TYPE" => "services",
+        "IBLOCK_ID" => "4",
+        "NEWS_COUNT" => "5",
+        "SORT_BY1" => "ACTIVE_FROM",
+        "SORT_ORDER1" => "DESC",
+        "SORT_BY2" => "SORT",
+        "SORT_ORDER2" => "ASC",
+        "FILTER_NAME" => "",
+        "FIELD_CODE" => array("",""),
+        "PROPERTY_CODE" => array("BANNER_SHORT_DESCR","BANNER_LINK",""),
+        "CHECK_DATES" => "Y",
+        "DETAIL_URL" => "",
+        "AJAX_MODE" => "N",
+        "AJAX_OPTION_JUMP" => "N",
+        "AJAX_OPTION_STYLE" => "Y",
+        "AJAX_OPTION_HISTORY" => "N",
+        "AJAX_OPTION_ADDITIONAL" => "",
+        "CACHE_TYPE" => "A",
+        "CACHE_TIME" => "36000000",
+        "CACHE_FILTER" => "N",
+        "CACHE_GROUPS" => "Y",
+        "PREVIEW_TRUNCATE_LEN" => "",
+        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+        "SET_TITLE" => "N",
+        "SET_BROWSER_TITLE" => "N",
+        "SET_META_KEYWORDS" => "N",
+        "SET_META_DESCRIPTION" => "Y",
+        "SET_LAST_MODIFIED" => "N",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "ADD_SECTIONS_CHAIN" => "N",
+        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+        "PARENT_SECTION" => "",
+        "PARENT_SECTION_CODE" => "",
+        "INCLUDE_SUBSECTIONS" => "N",
+        "DISPLAY_DATE" => "N",
+        "DISPLAY_NAME" => "Y",
+        "DISPLAY_PICTURE" => "Y",
+        "DISPLAY_PREVIEW_TEXT" => "Y",
+        "PAGER_TEMPLATE" => ".default",
+        "DISPLAY_TOP_PAGER" => "N",
+        "DISPLAY_BOTTOM_PAGER" => "N",
+        "PAGER_TITLE" => "Новости",
+        "PAGER_SHOW_ALWAYS" => "N",
+        "PAGER_DESC_NUMBERING" => "N",
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+        "PAGER_SHOW_ALL" => "N",
+        "PAGER_BASE_LINK_ENABLE" => "N",
+        "SET_STATUS_404" => "N",
+        "SHOW_404" => "N",
+        "MESSAGE_404" => ""
+    )
+);?>

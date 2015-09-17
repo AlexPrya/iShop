@@ -1054,15 +1054,15 @@ form.registration .form__section:nth-of-type(1) .form-control {
   display: inline-block;
   vertical-align: middle;
 }
-.main-navbar__logo a {
+.main-navbar__logo .main-navbar__logo-link {
   display: inline-block;
   vertical-align: middle;
   color: #000;
   font-size: 33px;
   line-height: 33px;
 }
-.main-navbar__logo a:focus,
-.main-navbar__logo a:hover {
+.main-navbar__logo .main-navbar__logo-link:focus,
+.main-navbar__logo .main-navbar__logo-link:hover {
   text-decoration: none;
   color: #000;
 }
@@ -1164,10 +1164,10 @@ form.registration .form__section:nth-of-type(1) .form-control {
 .main-navbar__login:after {
   clear: both;
 }
-.main-navbar__login div {
+.main-navbar__login .main-navbar__login-button {
   display: inline-block;
 }
-.main-navbar__login a {
+.main-navbar__login .main-navbar__login-link {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
@@ -1177,11 +1177,16 @@ form.registration .form__section:nth-of-type(1) .form-control {
   -webkit-transition: all .4s;
           transition: all .4s;
   border-bottom: 1px solid rgba(0, 0, 0, 0);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
 }
-.main-navbar__login a:focus {
+.main-navbar__login .main-navbar__login-link:focus {
   text-decoration: none;
 }
-.main-navbar__login a:hover {
+.main-navbar__login .main-navbar__login-link:hover {
   text-decoration: none;
   border-bottom: 1px solid #000000;
 }
@@ -1242,7 +1247,7 @@ form.registration .form__section:nth-of-type(1) .form-control {
   .main-navbar__logo {
     margin: 5px 0;
   }
-  .main-navbar__logo a {
+  .main-navbar__logo .main-navbar__logo-link {
     font-size: 25px;
     line-height: 25px;
   }
@@ -1256,7 +1261,7 @@ form.registration .form__section:nth-of-type(1) .form-control {
   .main-header {
     margin-bottom: 0;
   }
-  .main-navbar__logo a {
+  .main-navbar__logo .main-navbar__logo-link {
     font-size: 33px;
     line-height: 33px;
   }
