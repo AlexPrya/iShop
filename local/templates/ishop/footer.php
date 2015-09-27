@@ -1,4 +1,65 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+</div>
+</div>
+<?if (!$USER->IsAuthorized()) {?>
+<div class="modal fade modal-enter" id="modal-enter" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="modal-form" name="auth_form" method="post" target="_top" action="<?=$APPLICATION->GetCurDir()?>">
+                    <input type="hidden" name="AUTH_FORM" value="Y" />
+                    <input type="hidden" name="TYPE" value="AUTH" />
+                    <div class="form__section">
+                        <div class="form-head">
+                            <h3>Вход</h3>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-group">
+                                <label>
+                                    <span>Эл. почта</span>
+                                    <input type="text" name="USER_LOGIN" class="form-control">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <span>Пароль</span>
+                                    <input type="password" name="USER_PASSWORD" class="form-control">
+                                </label>
+                            </div>
+                            <div class="form-group form-group--offset spaceBetween">
+                                <div class="form-remember-me checkbox-group">
+                                    <label for="USER_REMEMBER_frm" title="запомнить меня">
+                                        <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" />
+                                        запомнить меня
+
+                                    </label>
+                                </div>
+
+                                <a href="#" class="forgot-password-link">
+                                    Забыли пароль?
+                                </a>
+                            </div>
+                            <div class="form-group form-group--offset">
+                                <input class="btn btn--black" type="submit" name="Login" value="<?=GetMessage("AUTH_LOGIN_BUTTON")?>" />
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a href="/register/" class="modal-form-large-btn">
+                Регистрация
+            </a>
+
+            <button type="button" class="modal-close" data-dismiss="modal"></button>
+        </div>
+    </div>
+</div>
+<?}?>
+<?if ($APPLICATION->GetCurDir() != '/') {?>
+</div>
+    </div>
+<?}?>
 </main>
 <footer class="main-footer">
     <div class="main-footer-top">
@@ -115,6 +176,24 @@
                         </div>
                     </div>
                 </div>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:catalog.socnets.buttons",
+                    "",
+                    Array(
+                        "COMPONENT_TEMPLATE" => ".default",
+                        "URL_TO_LIKE" => "",
+                        "TITLE" => "",
+                        "DESCRIPTION" => "",
+                        "IMAGE" => "",
+                        "FB_USE" => "Y",
+                        "TW_USE" => "N",
+                        "TW_VIA" => "",
+                        "TW_HASHTAGS" => "",
+                        "TW_RELATED" => "",
+                        "GP_USE" => "N",
+                        "VK_USE" => "Y"
+                    )
+                );?>
                 <div class="col-sm-3">
                     <ul class="social-list">
                         <li class="social-item">

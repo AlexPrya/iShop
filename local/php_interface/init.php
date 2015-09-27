@@ -1,4 +1,30 @@
 <?php
-function _show_array($mPrintVar) {
-    echo '<pre style="font-size:11px; margin:0 0 15px 0; padding:5px; color:#000000 !important; background-color:#ededed; text-align:left !important;">'.htmlspecialchars(print_r($mPrintVar, true)).'</pre>';
-}
+
+$sPath = '/local/php_interface/custom/';
+
+
+#
+# Константы
+#
+include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'constants.php');
+
+#
+# Подключим кастомные классы и функции
+#
+CModule::AddAutoloadClasses(
+    '',
+    array(
+        'CISEventHandlers' => $sPath.'classes/CISEventHandlers.php',
+        'CISCity' => $sPath.'classes/CISCity.php'
+    )
+);
+
+#
+# Функции (функции объявлять только здесь)
+#
+include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'functions.php');
+
+#
+# Обработчики событий
+#
+include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'handlers.php');

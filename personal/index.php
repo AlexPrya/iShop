@@ -1,18 +1,27 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Персональный раздел");
-?>
-<div class="bx_page">
-	<p>В личном кабинете Вы можете проверить текущее состояние корзины, ход выполнения Ваших заказов, просмотреть или изменить личную информацию, а также подписаться на новости и другие информационные рассылки. </p>
-	<div>
-		<h2>Личная информация</h2>
-		<a href="profile/">Изменить регистрационные данные</a>
-	</div>
-	<div>
-		<h2>Заказы</h2>
-		<a href="order/">Ознакомиться с состоянием заказов</a><br/>
-		<a href="cart/">Посмотреть содержимое корзины</a><br/>
-		<a href="order/">Посмотреть историю заказов</a><br/>
-	</div>
-</div>
+
+$template = 'main';
+
+if (!empty($_REQUEST['EDIT']) && $_REQUEST['EDIT'] = 'Y') {
+	$template = 'edit';
+}?>
+<?$APPLICATION->IncludeComponent(
+	"kefirok:main.profile",
+	$template,
+	Array(
+		"SET_TITLE" => "Y",
+		"COMPONENT_TEMPLATE" => "main",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"USER_PROPERTY" => array("EMAIL","NAME","LAST_NAME","PERSONAL_PHONE","PERSONAL_CITY","PERSONAL_STREET"),
+		"SEND_INFO" => "N",
+		"CHECK_RIGHTS" => "N",
+		"USER_PROPERTY_NAME" => ""
+	)
+);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
