@@ -176,24 +176,6 @@
                         </div>
                     </div>
                 </div>
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:catalog.socnets.buttons",
-                    "",
-                    Array(
-                        "COMPONENT_TEMPLATE" => ".default",
-                        "URL_TO_LIKE" => "",
-                        "TITLE" => "",
-                        "DESCRIPTION" => "",
-                        "IMAGE" => "",
-                        "FB_USE" => "Y",
-                        "TW_USE" => "N",
-                        "TW_VIA" => "",
-                        "TW_HASHTAGS" => "",
-                        "TW_RELATED" => "",
-                        "GP_USE" => "N",
-                        "VK_USE" => "Y"
-                    )
-                );?>
                 <div class="col-sm-3">
                     <ul class="social-list">
                         <li class="social-item">
@@ -219,3 +201,15 @@
 </footer>
 </body>
 </html>
+
+<?
+$APPLICATION->AddHeadScript('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/slick/slick.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/bootstrap/js/bootstrap.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/smoothscroll.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/scrollReveal.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/lightGallery/dist/js/lightgallery.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/vendor/jquery.inputmask.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/script.js');
+?>

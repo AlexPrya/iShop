@@ -1,5 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 IncludeTemplateLangFile(__FILE__);
+CJSCore::Init(array("fx"));
 ?>
     <!DOCTYPE html>
     <head>
