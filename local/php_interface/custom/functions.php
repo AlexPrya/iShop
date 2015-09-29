@@ -20,36 +20,6 @@ if(!function_exists('_show_array')) {
         echo '<pre style="font-size:11px; margin:0 0 15px 0; padding:5px; color:#000000 !important; background-color:#ededed; text-align:left !important;">'.htmlspecialchars(print_r($mPrintVar, true)).'</pre>';
     }
 }
-if(!function_exists('log_array')) {
-    function log_array($arFields = array(), $sFileName = 'log.txt', $bBacktrace = true) {
-        if($GLOBALS['USER']->isAdmin()) {
-            _log_array($arFields, $sFileName, $bBacktrace);
-        }
-    }
-}
-if(!function_exists('_log_array')) {
-    function _log_array($arFields = array(), $sFileName = 'log.txt', $bBacktrace = true) {
-        $sMess = '';
-        $sMess .= date('d.m.Y H:i:s')."\n";
-        $sMess .= print_r($arFields, true)."\n";
-        if($bBacktrace && function_exists('debug_backtrace')) {
-            $arBacktrace = debug_backtrace();
-            $iterationsCount = min(count($arBacktrace), 4);
-            for($i = 1; $i < $iterationsCount; $i++) {
-                if(strlen($strFunctionStack)) {
-                    $sMess .= ' < ';
-                }
-                if(strlen($arBacktrace[$i]['class'])) {
-                    $sMess .= $arBacktrace[$i]['class'].'::';
-                }
-                $sMess .= $arBacktrace[$i]['function']." >> ";
-            }
-        }
-        $sMess .= "\n----------\n\n";
-        $sFileName = empty($sFileName) ? 'log.txt' : $sFileName;
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/_log/'.$sFileName, $sMess, FILE_APPEND);
-    }
-}
 /**
  * GetWordEnding - окончание слова
  * @param float $number - число
