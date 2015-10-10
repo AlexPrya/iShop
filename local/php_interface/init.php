@@ -4,12 +4,12 @@ $sPath = '/local/php_interface/custom/';
 
 
 #
-# Константы
+# РєРѕРЅСЃС‚Р°РЅС‚С‹
 #
 include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'constants.php');
 
 #
-# Подключим кастомные классы и функции
+# РїРѕРґРєР»СЋС‡РµРЅРёРµ РєР°СЃС‚РѕРјРЅС‹С… РєР»Р°СЃСЃРѕРІ
 #
 CModule::AddAutoloadClasses(
     '',
@@ -20,11 +20,11 @@ CModule::AddAutoloadClasses(
 );
 
 #
-# Функции (функции объявлять только здесь)
+# С„СѓРЅРєС†РёРё (РѕР±СЉСЏРІР»СЏС‚СЊ С„СѓРЅРєС†РёРё С‚РѕР»СЊРєРѕ Р·РґРµСЃСЊ)
 #
 include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'functions.php');
 
 #
-# Обработчики событий
+# РѕР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№
 #
 include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'handlers.php');

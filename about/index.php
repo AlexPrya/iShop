@@ -1,6 +1,21 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("О магазине");
+
+//$IBE = new CIBlockElement;
+//
+//$rsElt = $IBE->GetById(11956);
+//if ($arElt=$rsElt->Fetch()) {
+//    _show_array($arElt);
+//}
+//$IB = new CIBlock;
+//
+//$rsIB = $IB->GetById(9);
+//if ($arIB=$rsIB->Fetch()) {
+//    _show_array($arIB);
+//}
+_show_array($_SESSION);
+_show_array($_SERVER);
 ?>
 <div class="row">
 	<div class="col-xs-12">
