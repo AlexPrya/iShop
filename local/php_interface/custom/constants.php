@@ -8,3 +8,5 @@
 define('CITY_LIST_HLB', 'CityList');
 // Код города по умолчанию
 define('DEFAULT_CITY_CODE', 0);
+// Код инфоблока товаров по умолчанию
+define('DEFAULT_CATALOG_IBLOCK', 'ishop_catalog');

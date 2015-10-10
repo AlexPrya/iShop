@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Акции");
 	Array(
 		"COMPONENT_TEMPLATE" => "actions",
 		"IBLOCK_TYPE" => "services",
-		"IBLOCK_ID" => "8",
+		"IBLOCK_ID" => "2",
 		"NEWS_COUNT" => "20",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
@@ -58,10 +58,8 @@ $APPLICATION->SetTitle("Акции");
 		"MESSAGE_404" => ""
 	)
 );?>
-
-	<div class="promo-archive">
-		<a href="#" class="btn btn--border">
-			архив акций <span class="btn-badge">27</span>
-		</a>
-	</div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<div class="promo-archive">
+ <a href="#" class="btn btn--border">
+	архив акций <span class="btn-badge">27</span> </a>
+</div>
+<br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

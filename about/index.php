@@ -14,8 +14,8 @@ $APPLICATION->SetTitle("О магазине");
 //if ($arIB=$rsIB->Fetch()) {
 //    _show_array($arIB);
 //}
-_show_array($_SESSION);
-_show_array($_SERVER);
+//_show_array($_SESSION);
+//_show_array($_SERVER);
 ?>
 <div class="row">
 	<div class="col-xs-12">
