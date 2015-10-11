@@ -13,13 +13,11 @@
 $this->setFrameMode(true);
 ?>
 <li class="dropdown main-navbar__nav-item">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Владивосток <span
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=$arResult['CITIES'][$arResult['USER_CITY']]?> <span
             class="glyphicon glyphicon-menu-down"></span></a>
     <ul class="dropdown-menu">
-        <li class="active"><a href="#">Владивосток</a></li>
-        <li><a href="#">Хабаровск</a></li>
-        <li><a href="#">Находка</a></li>
-        <li><a href="#">Южно-Сахалинск</a></li>
-        <li><a href="#">Петропавловск-Камчатский</a></li>
+        <?foreach ($arResult['CITIES'] as $cityCode => $cityName):?>
+        <li <?=$cityCode == $arResult['USER_CITY'] ? 'class="active"' : ''?>><a href="?newCity=<?=$cityCode?>"><?=$cityName?></a></li>
+        <?endforeach;?>
     </ul>
 </li>

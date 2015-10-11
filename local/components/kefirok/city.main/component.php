@@ -9,13 +9,18 @@
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
-if (!$USER->IsAuthorized()) {
-    $arResult['ERROR'][] = '����������������� �� ����� ��� �������������';
-} else {
-    $arResult = array();
+$arResult = array();
 
-    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-//    _show_array($remoteAddr);
+$arResult['CITIES'] = CISCity::GetCityList();
+
+$req = $_REQUEST;
+
+if ($req['newCity'] && $req['newCity'] != '' && !empty($arResult['CITIES'][$req['newCity']])) {
+    $_SESSION['USER_CITY'] = $req['newCity'];
+    $_SESSION['USER_PRICE_TYPE'] = CISCity::GetPriceTypeByCode($req['newCity']);
+
 }
+
+$arResult['USER_CITY'] = $_SESSION['USER_CITY'];
 
 $this->IncludeComponentTemplate();

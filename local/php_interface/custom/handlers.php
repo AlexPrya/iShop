@@ -3,3 +3,4 @@
 # Обработчики событий
 # (файл подключается в php_interface/init.php)
 #
+AddEventHandler('main', 'OnProlog', array('CISEventHandlers', 'CheckUserCity'));

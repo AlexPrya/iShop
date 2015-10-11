@@ -14,6 +14,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].$sPath.'constants.php');
 CModule::AddAutoloadClasses(
     '',
     array(
+        'IPGeoBase' => $sPath.'classes/IPGeoBase.php',
         'CISEventHandlers' => $sPath.'classes/CISEventHandlers.php',
         'CISCity' => $sPath.'classes/CISCity.php'
     )

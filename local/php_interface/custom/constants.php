@@ -5,8 +5,10 @@
 #
 
 // Название справочника городов (временные константы, нужно переделать)
-define('CITY_LIST_HLB', 'CityList');
+define('CITY_LIST_HLB', 'cities');
 // Код города по умолчанию
-define('DEFAULT_CITY_CODE', 0);
+define('DEFAULT_CITY_CODE', 794);
 // Код инфоблока товаров по умолчанию
 define('DEFAULT_CATALOG_IBLOCK', 'ishop_catalog');
+// Папка сайта
+define('CITE_PATH', '/var/www/alex/data/www/ishop.makefresh.org/');
