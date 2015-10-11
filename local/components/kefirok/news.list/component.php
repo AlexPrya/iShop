@@ -51,8 +51,6 @@ else
 		$arrFilter = array();
 }
 
-$arParams["CHECK_DATES"] = $arParams["CHECK_DATES"]!="N";
-
 if(!is_array($arParams["FIELD_CODE"]))
 	$arParams["FIELD_CODE"] = array();
 foreach($arParams["FIELD_CODE"] as $key=>$val)
@@ -200,8 +198,13 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 			"CHECK_PERMISSIONS" => $arParams['CHECK_PERMISSIONS'] ? "Y" : "N",
 		);
 
-		if($arParams["CHECK_DATES"])
-			$arFilter["ACTIVE_DATE"] = "Y";
+		if($arParams["CHECK_DATES"] == 'Y') {
+            $arFilter["ACTIVE_DATE"] = "Y";
+
+        } elseif ($arParams["CHECK_DATES"] == 'R') {
+            $arFilter["!ACTIVE_DATE"] = "Y";
+
+        }
 
 		$arParams["PARENT_SECTION"] = CIBlockFindTools::GetSectionID(
 			$arParams["PARENT_SECTION"],
@@ -246,6 +249,18 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 		$obParser = new CTextParser;
 		$arResult["ITEMS"] = array();
 		$arResult["ELEMENTS"] = array();
+
+        if ($arParams["CHECK_DATES"] != 'R') {
+
+            $altFilter = $arFilter;
+            unset($altFilter['ACTIVE_DATE']);
+            $altFilter["!ACTIVE_DATE"] = "Y";
+
+            $rsElement = CIBlockElement::GetList($arSort, array_merge($altFilter, $arrFilter), false, $arNavParams, $arSelect);
+            $arResult['ARCHIVE'] = $rsElement->SelectedRowsCount();
+
+        }
+
 		$rsElement = CIBlockElement::GetList($arSort, array_merge($arFilter, $arrFilter), false, $arNavParams, $arSelect);
 		$rsElement->SetUrlTemplates($arParams["DETAIL_URL"], "", $arParams["IBLOCK_URL"]);
 		while($obElement = $rsElement->GetNextElement())

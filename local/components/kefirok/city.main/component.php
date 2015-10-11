@@ -15,7 +15,7 @@ if (!$USER->IsAuthorized()) {
     $arResult = array();
 
     $remoteAddr = $_SERVER['REMOTE_ADDR'];
-    _show_array($remoteAddr);
+//    _show_array($remoteAddr);
 }
 
 $this->IncludeComponentTemplate();

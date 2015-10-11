@@ -16,14 +16,12 @@ $this->setFrameMode(true);
     <?foreach($arResult["ITEMS"] as $arItem) {
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-        _show_array($arItem);?>
+        ?>
     <div class="promo-item">
         <div class="row">
             <div class="col-sm-4">
                 <div class="promo-item__image">
-
                         <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class="img-responsive" alt="">
-
                 </div>
             </div>
             <div class="col-sm-8">
@@ -43,5 +41,12 @@ $this->setFrameMode(true);
             </div>
         </div>
         </div>
+    <?}
+    if ($APPLICATION->GetCurDir() != '/actions/archive/') {?>
+        <div class="promo-archive">
+            <a href="archive/" class="btn btn--border">
+                архив акций <span class="btn-badge"><?=$arResult['ARCHIVE']?></span> </a>
+        </div>
     <?}?>
+
 </div>

@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Акции");
 	Array(
 		"COMPONENT_TEMPLATE" => "actions",
 		"IBLOCK_TYPE" => "services",
-		"IBLOCK_ID" => "8",
+		"IBLOCK_ID" => "12",
 		"NEWS_COUNT" => "20",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
@@ -16,7 +16,7 @@ $APPLICATION->SetTitle("Акции");
 		"FILTER_NAME" => "",
 		"FIELD_CODE" => array("",""),
 		"PROPERTY_CODE" => array("",""),
-		"CHECK_DATES" => "N",
+		"CHECK_DATES" => "R",
 		"DETAIL_URL" => "",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",

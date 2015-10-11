@@ -110,7 +110,7 @@ $arComponentParameters = array(
 		"CHECK_DATES" => array(
 			"PARENT" => "DATA_SOURCE",
 			"NAME" => GetMessage("T_IBLOCK_DESC_CHECK_DATES"),
-			"TYPE" => "CHECKBOX",
+            "TYPE" => "STRING",
 			"DEFAULT" => "Y",
 		),
 		"DETAIL_URL" => CIBlockParameters::GetPathTemplateParam(
